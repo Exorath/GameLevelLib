@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.exorath</groupId>
-    <artifactId>GameLevelPlugin</artifactId>
+    <artifactId>GameLevelLib</artifactId>
     <version>0.0.1</version>
     <build>
         <plugins>
@@ -20,7 +20,7 @@
                         <configuration>
                             <filters>
                                 <filter>
-                                    <artifact>GameLevelPlugin:GameLevelPlugin</artifact>
+                                    <artifact>GameLevelLib:GameLevelLib</artifact>
                                     <includes>
                                         <include>**</include>
                                     </includes>
