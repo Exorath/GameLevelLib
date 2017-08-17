@@ -35,7 +35,7 @@ public class LevelsMenu {
 
     private MenuItem getLevelItem(LevelPlayer levelPlayer, int level, LevelHandler levelHandler) {
         boolean hasLvl = levelPlayer.getLvl() >= level;
-        boolean consumed = levelPlayer.getConsumable().contains(level);
+        boolean consumed = levelPlayer.getConsumable() == null ? false : levelPlayer.getConsumable().contains(level);
 
         String title = getTitle(levelHandler, hasLvl, consumed, level);
         title = title.substring(0, 32);//make sure we don't have overflow

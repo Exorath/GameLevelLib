@@ -75,7 +75,7 @@ public class GameLevelLib implements Listener {
         if (levelPlayer.getLvl() < level) {
             event.getWhoClicked().sendMessage(ChatColor.RED + "You are not lvl " + level + " yet.");
         } else if (levelHandler != null && !levelHandler.getRewards().isEmpty()) {
-            if (levelPlayer.getConsumable().contains(level)) {
+            if (levelPlayer.getConsumable() != null && levelPlayer.getConsumable().contains(level)) {
                 event.getWhoClicked().closeInventory();
                 event.getWhoClicked().sendMessage(ChatColor.GREEN + "Unlocking rewards...");
                 unlockRewards((Player) event.getWhoClicked(), level, levelHandler);
