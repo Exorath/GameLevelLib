@@ -1,4 +1,4 @@
-# GameLevelPlugin
+# GameLevelLib
 
 Lobby plugin that allows for a level inventory with 'consumable levels'
 
