@@ -68,6 +68,7 @@ public class GameLevelLib implements Listener {
                 onClick(event, levelPlayer, lvl, handler);
             });
         }
+
         return levelsMenu;
     }
 

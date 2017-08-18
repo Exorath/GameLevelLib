@@ -24,6 +24,16 @@ public class LevelsMenu {
         this.levelFunction = levelFunction;
         String title = ChatColor.DARK_GRAY + "Lvl " + levelPlayer.getLvl() + " on " + gameTitle;
         this.menu = new InventoryMenu(title, Size.SIX_LINE, new MenuItem[Size.SIX_LINE.getslots()], null);
+        setupBack();
+    }
+
+    private void setupBack() {
+        MenuItem back = getBackArrow();
+        back.getClickObservable().subscribe(event -> {
+            event.setCancelled(true);
+            event.getWhoClicked().closeInventory();
+        });
+        menu.setItem(menu.getSize().getslots() - 5, back);
     }
 
     public InventoryMenu getMenu() {
@@ -53,10 +63,14 @@ public class LevelsMenu {
 
     }
 
-    private  String getTitle(LevelHandler levelHandler, boolean hasLvl, boolean consumed, int level) {
+    private MenuItem getBackArrow() {
+        return new MenuItem(ChatColor.GREEN + "Close Inventory " + ChatColor.GRAY + "(Right Click) ", new ItemStack(Material.ARROW));
+    }
+
+    private String getTitle(LevelHandler levelHandler, boolean hasLvl, boolean consumed, int level) {
         if (!hasLvl) {
-            if(levelPlayer.getLvl() + 1 == level)
-                return ChatColor.DARK_PURPLE + "Level " + level + ChatColor.GRAY +  " (" + (levelFunction.getXp(level) - levelPlayer.getXp()) + " Xp Required)";
+            if (levelPlayer.getLvl() + 1 == level)
+                return ChatColor.DARK_PURPLE + "Level " + level + ChatColor.GRAY + " (" + (levelFunction.getXp(level) - levelPlayer.getXp()) + " Xp Required)";
             return ChatColor.RED + "Level " + level;
         } else {
             if (levelHandler == null || levelHandler.getRewards().isEmpty()) {
