@@ -57,7 +57,7 @@ public class LevelsMenu {
         Material material = getMaterial(levelHandler, hasLvl, consumed);
         String[] lore = getLore(levelHandler, hasLvl, consumed);
         ItemStack is = new ItemStack(material);
-        if (consumed)
+        if (nextLvl)
             Glow.addGlow(is);
         return new MenuItem(title, is, lore);
 
