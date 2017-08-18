@@ -72,6 +72,7 @@ public class GameLevelLib implements Listener {
     }
 
     private void onClick(InventoryClickEvent event, LevelPlayer levelPlayer, int level, LevelHandler levelHandler) {
+        event.setCancelled(true);
         if (AntiSpam.isSpamming(event.getWhoClicked().getUniqueId()))
             return;
         AntiSpam.setSpamming(plugin, event.getWhoClicked().getUniqueId());
