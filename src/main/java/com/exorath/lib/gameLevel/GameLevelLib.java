@@ -3,6 +3,7 @@ package com.exorath.lib.gameLevel;
 import com.exorath.commons.AntiSpam;
 import com.exorath.exomenus.MenuItem;
 import com.exorath.service.gamelevel.api.GameLevelServiceAPI;
+import com.exorath.service.gamelevel.res.LevelFunction;
 import com.exorath.service.gamelevel.res.LevelPlayer;
 import com.exorath.service.gamelevel.res.Success;
 import net.md_5.bungee.api.ChatColor;
@@ -30,12 +31,14 @@ public class GameLevelLib implements Listener {
     private Plugin plugin;
     private LevelsConfig levelsConfig;
     private Integer levelSlot;
+    private LevelFunction levelFunction;
 
     public GameLevelLib(GameLevelServiceAPI gameLevelServiceAPI, Plugin plugin, LevelsConfig levelsConfig, Integer levelSlot) {
         this.gameLevelServiceAPI = gameLevelServiceAPI;
         this.plugin = plugin;
         this.levelsConfig = levelsConfig;
         this.levelSlot = levelSlot;
+        this.levelFunction = gameLevelServiceAPI.getLevelFunction();
     }
 
     public void openInventory(Player player) {
@@ -56,7 +59,7 @@ public class GameLevelLib implements Listener {
     }
 
     private LevelsMenu getInventory(final LevelPlayer levelPlayer) {
-        LevelsMenu levelsMenu = new LevelsMenu(levelPlayer, levelsConfig.getGameTitle());
+        LevelsMenu levelsMenu = new LevelsMenu(levelPlayer, levelsConfig.getGameTitle(), levelFunction);
         for (int i = 1; i <= 36; i++) {
             final LevelHandler handler = levelsConfig.getRewardHandlersByLevel().get(i);
             MenuItem menuItem = levelsMenu.addLevel(i, handler);
