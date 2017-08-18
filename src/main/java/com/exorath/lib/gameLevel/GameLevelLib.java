@@ -120,7 +120,7 @@ public class GameLevelLib implements Listener {
     }
 
     private ItemStack getHotbarItem(Player player) {
-        ItemStack is = new ItemStack(Material.SKULL_ITEM);
+        ItemStack is = new ItemStack(Material.SKULL_ITEM, (byte) 3);
         SkullMeta meta = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
         meta.setOwner(player.getName());
         meta.setDisplayName(ChatColor.GREEN + "Your Account " + ChatColor.GRAY + "(Right Click)");
