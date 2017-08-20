@@ -39,13 +39,11 @@ public class LevelText implements HUDText {
             levelTxt.setColor(ChatColor.WHITE);
             TextComponent level = new TextComponent(" " + levelPlayer.getLvl());
             level.setColor(ChatColor.GREEN);
-            TextComponent bracket = new TextComponent("(");
+            TextComponent bracket = new TextComponent(" -");
             bracket.setColor(ChatColor.GRAY);
             TextComponent xp = new TextComponent(" " + reqPercentage + "%");
             xp.setColor(ChatColor.AQUA);
-            TextComponent bracketClosed = new TextComponent(")");
-            bracketClosed.setColor(ChatColor.GRAY);
-            s.onNext(Arrays.asList(levelTxt, level, bracket, xp, bracketClosed));
+            s.onNext(Arrays.asList(levelTxt, level, bracket, xp));
         }).subscribeOn(Schedulers.io());
     }
 
