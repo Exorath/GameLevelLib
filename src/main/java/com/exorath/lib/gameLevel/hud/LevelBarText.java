@@ -36,9 +36,9 @@ public class LevelBarText implements HUDText{
             LevelPlayer levelPlayer = gameLevelServiceAPI.getPlayer(gameId, player.getUniqueId().toString());
             TextComponent openBracket = new TextComponent("[");
             openBracket.setColor(ChatColor.DARK_GRAY);
-            TextComponent achievedLevels = new TextComponent();
+            TextComponent achievedLevels = new TextComponent(getAchievedLevels(levelPlayer));
             achievedLevels.setColor(ChatColor.AQUA);
-            TextComponent toAchieve = new TextComponent();
+            TextComponent toAchieve = new TextComponent(getToAchieveLevels(levelPlayer));
             toAchieve.setColor(ChatColor.GRAY);
             TextComponent closedBracket = new TextComponent("]");
             closedBracket.setColor(ChatColor.DARK_GRAY);
